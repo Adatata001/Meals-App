@@ -8,17 +8,14 @@ class MealsScreen extends StatelessWidget {
     required this.meals,
     this.title,
     super.key,
-    required this.onToggleFavourite,
     });
 
   final String? title;
   final List<Meal> meals;
-  final void Function(Meal meal) onToggleFavourite;
 
   void selectMeal(BuildContext context, Meal meal) {
     Navigator.of(context).push(MaterialPageRoute(builder: (ctx) => MealDetailsScreen(
       meal:meal,
-      onToggleFavourite: onToggleFavourite,
         ),
       ),
     );
@@ -31,12 +28,12 @@ class MealsScreen extends StatelessWidget {
             mainAxisSize: MainAxisSize.min, children: [
               Text('Uh oh...nothing here',
                style: Theme.of(context).textTheme.headlineLarge!.copyWith(
-                color: Theme.of(context).colorScheme.onBackground,
+                color: Theme.of(context).colorScheme.onSurface,
                 ),),
               SizedBox(height: 16),
               Text('Try selecting a different category',
               style: Theme.of(context).textTheme.bodyLarge!.copyWith(
-                color: Theme.of(context).colorScheme.onBackground,
+                color: Theme.of(context).colorScheme.onSurface,
                 ),
               ),
             ],
